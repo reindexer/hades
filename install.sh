@@ -1,4 +1,4 @@
-apt-get install python-pip3 supervisor -y
+apt-get install python3-pip supervisor -y
 pip3 install tornado
 
 cd /home/hades/hades
