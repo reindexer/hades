@@ -43,7 +43,7 @@ def connect(server, port, identity):
         except Exception as ex:
             print ('[Error]: ', ex)
         finally:
-            stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 1000000).add_done_callback(client_read)
+            stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 100000).add_done_callback(client_read)
 
 
     def send(message):
@@ -115,7 +115,7 @@ def connect(server, port, identity):
             RECONNECT_TIME=180
 
     stream.set_close_callback(disconnected)
-    stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 10000).add_done_callback(client_read)
+    stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 100000).add_done_callback(client_read)
 
 
 @gen.coroutine

@@ -170,9 +170,9 @@ class MessageServer(TCPServer):
             print (message)
 
             self.recv(client, message)
-            client.stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 10000).add_done_callback(client_read)
+            client.stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 100000).add_done_callback(client_read)
 
-        client.stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 10000).add_done_callback(client_read)
+        client.stream.read_until(settings.MESSAGE_SEPARATOR.encode('utf-8'), 100000).add_done_callback(client_read)
         self.send(client, {'type': 'status'})
 
     def remove_client(self, client):
