@@ -8,15 +8,17 @@ import requests
 
 
 async def get(*args, **kwargs):
-    async with ClientSession() as session:
-        async with session.get(*args, **kwargs) as response:
-            return await response.text()
+    # async with ClientSession() as session:
+    #     async with session.get(*args, **kwargs) as response:
+    #         return await response.text('gbk')
+    return requests.get(*args, **kwargs).text
 
 
 async def post(*args, **kwargs):
-    async with ClientSession() as session:
-        async with session.post(*args, **kwargs) as response:
-            return await response.text()
+    # async with ClientSession() as session:
+    #     async with session.post(*args, **kwargs) as response:
+    #         return await response.text()
+    return requests.post(*args, **kwargs).text
 
 apis = {
     'get': get,
